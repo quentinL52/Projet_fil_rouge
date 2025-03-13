@@ -1,0 +1,8 @@
+
+
+Bienvenue dans le simulateur d'entretien, le modèle va poser une série de    
+                                   questions                                    
+   Entre chaque question, un score sera donné basé sur l'analyse de sentiment   
+               Après l'entretien, tapez 'Au revoir' pour quitter                
+
+

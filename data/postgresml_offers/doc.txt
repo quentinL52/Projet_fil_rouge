@@ -1,0 +1,25 @@
+activer l'extension pg vector :
+
+CREATE EXTENSION IF NOT EXISTS vector;
+
+requete pour creer la table document dans dbeaver :
+
+CREATE TABLE documents (
+    id SERIAL PRIMARY KEY,
+    combined_content TEXT,               
+    embedding VECTOR(1024)               -- Embedding (ajuster la dimension selon le modèle)
+);
+
+generer des embeddings :
+
+UPDATE documents 
+SET embedding = pgml.embed('intfloat/e5-large', combined_content)
+WHERE embedding IS NULL;
+
+text classification :
+
+SELECT pgml.transform(
+    task => 'text-classification',
+    inputs => ARRAY[:text_input]) 
+    AS analysis;
+
